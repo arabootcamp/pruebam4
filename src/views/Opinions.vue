@@ -1,20 +1,20 @@
 <template>
   <div>
     <Navbar />
-    <h1 class="my-5 text-center">Lista de juegos Disponibles</h1>
-    <GamesTable />
+    <h1 class="my-5 text-center">Lista de Opiniones</h1>
+    <OpinionList />
   </div>
 </template>
 
 <script>
   import Navbar from "@/components/Navbar.vue";
-  import GamesTable from '@/components/GamesTable.vue'
+  import OpinionList from '@/components/OpinionList.vue'
 
   export default {
-    name: 'Home',
+    name: 'Opinions',
     components: {
       Navbar,
-      GamesTable
+      OpinionList
     }
   }
 </script>

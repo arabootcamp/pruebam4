@@ -39,6 +39,7 @@ export default new Vuex.Store({
     getErrored: state => state.apiErrored,
     getData: state => state.apiData,
     getGamesOpinions: state => state.gamesOpinions,
+    getOneGamesOpinion: state => index => state.gamesOpinions[index],
   },
   mutations: {
     setApiData: (state, data) => {
@@ -59,8 +60,13 @@ export default new Vuex.Store({
       state.gamesOpinions.unshift(payload);
       console.log('action->commit setGamesOpinions realizado');
     },
-    deleteOpinion:(status, index) =>{
-      status.gamesOpinions.splice(index,1);
+    deleteOpinion: (status, index) => {
+      status.gamesOpinions.splice(index, 1);
+    },
+    editOpinion:(state,payload)=>{
+      state.gamesOpinions[payload.index].personName=payload.personName;
+      state.gamesOpinions[payload.index].personOpinion=payload.personOpinion;
+      console.log("action->commit editOpinion realizado, index ..."+payload.index)
     }
   },
   actions: {
@@ -93,8 +99,13 @@ export default new Vuex.Store({
     deleteOpinion({
       commit
     }, index) {
-      commit('deleteOpinion', index)
-    }
+      commit('deleteOpinion', index);
+    },
+    editOpinion({
+        commit
+      }, payload){
+        commit('editOpinion',payload);
+      }
   },
   modules: {}
 })

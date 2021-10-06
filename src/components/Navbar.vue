@@ -62,7 +62,7 @@
           },
           {
             id: "003administration",
-            path: "Administration",
+            path: "OpinionsTable",
             name: "Administración",
             icon:'nut-fill'
           },

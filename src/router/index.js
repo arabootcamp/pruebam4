@@ -3,8 +3,11 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Opinions from '../views/Opinions.vue'
 import Administration from '../views/Administration.vue'
-import EditOpinion from '../components/EditOpinion.vue'
+import OpinionsTable from '../components/OpinionsTable.vue'
+//import EditOpinion from '../components/EditOpinion.vue'
 import NotFound from '../views/NotFound.vue'
+//borrar
+import EditOpinion from '../components/EditOpinion.vue'
 
 Vue.use(VueRouter)
 
@@ -20,15 +23,25 @@ const routes = [{
     component: Opinions
   },
   {
-    path: '/administration/:NumOpinion',
-    name: 'Administration',
+    path: '/administration',
     component: Administration,
+    redirect:'/notFound',
     children: [{
-      path: 'editOpinion',
-      component: EditOpinion,
-      name: 'editOpinion'
-    }, ]
-
+        path: 'table',
+        component: OpinionsTable,
+        name: 'OpinionsTable'
+      },
+      {
+        path: 'edit/:numOpinion',
+        component: EditOpinion,
+        name: 'Edit',
+        props: true
+      },
+      {
+        path: '*',
+        redirect:'/notFound'
+      }
+    ]
   },
   {
     path: '*',

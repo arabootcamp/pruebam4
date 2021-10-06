@@ -37,7 +37,6 @@
           return false;
       },
       gamesOpinions() {
-        console.log(this.$store.getters.getGamesOpinions)
         return this.$store.getters.getGamesOpinions;
       }
     },

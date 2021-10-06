@@ -1,5 +1,6 @@
 <template>
   <div>
+<h1 class="my-5 text-center">Administrando la Lista de Opiniones</h1>
     <b-container fluid="lg">
       <section>
 
@@ -45,20 +46,22 @@
       },
       fields() {
         return [{
-            key: 'index',
+            key: 'opinionNum',
             label: '#',
             sortable: true,
           },
           {
-            key: 'persona',
+            key: 'personName',
+            label: 'Persona',
             sortable: true,
           },
           {
-            key: 'juego',
+            key: 'gameName',
+            label: 'juego',
             sortable: true,
           },
           {
-            key: 'opinion',
+            key: 'personOpinion',
             label: 'Opinión',
           },
           {
@@ -74,10 +77,10 @@
         data.forEach((el, index) => {
           let val = index + 1;
           newArray.push({
-            index: val,
-            persona: el.personName,
-            juego: el.gameName,
-            opinion: el.personOpinion,
+            opinionNum: val,
+            personName: el.personName,
+            gameName: el.gameName,
+            personOpinion: el.personOpinion,
             btn_selected: index
           })
         });
@@ -90,7 +93,8 @@
         this.$bvModal.show('confirm-modal')
       },
       editOpinion(index) {
-        console.log(typeof index)
+        let opinionNum=index+1;
+        this.$router.push("/administration/edit/"+opinionNum);
       },
       resetModal() {
         this.opinionNum = null;

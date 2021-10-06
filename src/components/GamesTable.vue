@@ -1,7 +1,6 @@
 <template>
   <div>
     <b-container fluid-md class="mt-5 mx-auto px-0">
-
       <section v-if="getErrored">
         <p v-text="textError"></p>
       </section>

@@ -7,7 +7,7 @@
 <script>
   export default {
     name: "App",
-    beforeCreate() {
+    created() {
       //go to fech API
       this.$store.dispatch('dataLoad');
     }

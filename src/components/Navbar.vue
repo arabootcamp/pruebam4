@@ -4,7 +4,7 @@
       <b-container>
         <b-navbar-brand href="#">
           <b-icon icon="headset" aria-hidden="true"></b-icon>
-          Games Opinion
+          <span>Games Opinion</span>
         </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -33,6 +33,7 @@
     BCollapse,
     BNavbarNav,
     BNavItem,
+    BIcon
   } from "bootstrap-vue"
 
   export default {
@@ -45,6 +46,7 @@
       BCollapse,
       BNavbarNav,
       BNavItem,
+      BIcon
     },
     data() {
       return {

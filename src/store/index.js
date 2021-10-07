@@ -74,7 +74,7 @@ export default new Vuex.Store({
       state,
       commit
     }) {
-      const URL = 'https://api.rawg.io/api/games55555';
+      const URL = 'https://api.rawg.io/api/games';
       const API_KEY = '?key=' + process.env.VUE_APP_API_KEY;
 
       fetch(URL + API_KEY)

@@ -1,7 +1,15 @@
-import {mount, createLocalVue} from '@vue/test-utils'
+import {
+  mount,
+  createLocalVue
+} from '@vue/test-utils'
 import Vuex from 'vuex'
 import GamesTable from '@/components/GamesTable.vue'
-import {BModal,BFormInput,BButton,BFormGroup} from "bootstrap-vue"
+import {
+  BModal,
+  BFormInput,
+  BButton,
+  BFormGroup
+} from "bootstrap-vue"
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -42,8 +50,8 @@ describe('GamesTable.vue', () => {
     console.log(wrapper.findComponent(BButton).text())
     expect(wrapper.findComponent(BButton).exists()).toBeTruthy();
 
-console.log(wrapper.html())
-   expect(wrapper.find('#name-input').exists()).toBeTruthy(); 
+    console.log(wrapper.html())
+    expect(wrapper.find('#name-input').exists()).toBeTruthy();
 
 
 

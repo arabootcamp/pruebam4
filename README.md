@@ -1,5 +1,10 @@
 # p4
 
+##  Añadir Api Key
+
+### Ingresar la variable de ambiente VUE_APP_API_KEY="SU APIKEY PARA CONSULTAR API"
+
+
 ## Project setup
 ```
 npm install

@@ -2,9 +2,6 @@
   <div>
     <b-container fluid-md class="mt-5 mx-auto px-0">
       <section>
-        <h2>PRUEBA01<span>span</span></h2>
-
-        <b-button>button test</b-button>
 
         <div v-if="getErrored">
           <p v-text="textError"></p>

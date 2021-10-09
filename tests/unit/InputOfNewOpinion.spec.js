@@ -1,73 +1,39 @@
-import {
-  mount,
-  createLocalVue
-} from '@vue/test-utils'
-import Vuex from 'vuex'
-import GamesTable from '@/components/GamesTable.vue'
-import {
-  BModal,
-  BFormInput,
-  BButton,
-  BFormGroup
-} from "bootstrap-vue"
+//import { createLocalVue } from '@vue/test-utils'
+//import Vue from 'vue';
+//import Vuex from 'vuex'
+import store from '@/store/index';
 
-const localVue = createLocalVue();
-localVue.use(Vuex);
-
-describe('GamesTable.vue', () => {
-
-  let getters;
-  let actions;
-  let store;
-
-
-  beforeEach(() => {
-    getters = {
-      getLoading: () => false,
-      getErrored: () => false,
-      getData: () => null,
-    }
-
-    actions = {
-      setGamesOpinions: jest.fn()
-    };
-
-    store = new Vuex.Store({
-      getters,
-      actions
-    })
-  });
+describe('Prueba al store', () => {
 
   it('Ingreso de una nueva opinión', () => {
-    const wrapper = mount(GamesTable, {
-      store,
-      localVue
-    });
 
-    console.log(wrapper.find('h2').html());
-    expect(wrapper.find('h2').text()).toContain('PRUEBA01')
-
-    console.log(wrapper.findComponent(BButton).text())
-    expect(wrapper.findComponent(BButton).exists()).toBeTruthy();
-
-    console.log(wrapper.html())
-    expect(wrapper.find('#name-input').exists()).toBeTruthy();
+    const newOpinion = {
+      id: 3328,
+      gameName: "The Witcher 3: Wild Hunt",
+      personName: "Lucis",
+      personOpinion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui perspiciatis sed, ipsum dolor sit amet consectetur adipisicing elit. Qui perspiciatis sed.Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui perspiciatis sed, ipsum dolor sit amet consectetur adipisicing elit. Qui perspiciatis sed."
+    }
+    store.dispatch('setGamesOpinions', newOpinion)
+    expect(store.getters.getGamesOpinions).toHaveLength(1)
+  });
 
 
+  it('Edición de una opinión agregada', () => {
+    let edit = 'Lorem editado'
+    const editOpinion = {
+      index: 0,
+      personName: "Lucis",
+      personOpinion: edit
+    }
+    store.dispatch('editOpinion', editOpinion);
+    expect(store.getters.getGamesOpinions[0]).toHaveProperty('personOpinion', edit);
+    expect(store.getters.getGamesOpinions[0]).toHaveProperty('id', 3328);
+  });
 
-    /*
-    const name = wrapper.find('#name-input');
-    const text = wrapper.find('#opinion-input');
-  
-    console.log(wrapper)
-    console.log('---------------')
+  it('eliminar opinion', () => {
+    const index = 0;
+    store.dispatch('deleteOpinion', index);
+    expect(store.getters.getGamesOpinions).toHaveLength(0);
+  });
 
-    
-    name.element.value='Charles Francis Xavier';
-    text.element.value='Charles Francis Xavier, ​ también llamado Profesor X, es un superhéroe perteneciente al Universo Marvel.';
-    console.log(name.element.value)
-    console.log(text.element.value)
-  
-*/
-  })
 })

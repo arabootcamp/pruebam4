@@ -8,31 +8,7 @@ export default new Vuex.Store({
     apiLoading: true,
     apiErrored: false,
     apiData: [],
-    gamesOpinions: [{
-        id: 5286,
-        gameName: "Tomb Raider (2013)",
-        personName: "Melissa",
-        personOpinion: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui perspiciatis sed, itaque doloremque ratione tempore eos harum laudantium molestias cupiditate praesentium ipsa beatae quod blanditiis tenetur quasi! Sit, nihil porro?'
-      },
-      {
-        id: 5286,
-        gameName: "Tomb Raider (2013)",
-        personName: "Cristina",
-        personOpinion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui perspiciatis sed,"
-      },
-      {
-        id: 3498,
-        gameName: "Grand Theft Auto V",
-        personName: "Roberto",
-        personOpinion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui perspiciatis sed, ipsum dolor sit amet consectetur adipisicing elit. Qui perspiciatis sed."
-      },
-      {
-        id: 3328,
-        gameName: "The Witcher 3: Wild Hunt",
-        personName: "Lucis",
-        personOpinion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui perspiciatis sed, ipsum dolor sit amet consectetur adipisicing elit. Qui perspiciatis sed.Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui perspiciatis sed, ipsum dolor sit amet consectetur adipisicing elit. Qui perspiciatis sed."
-      }
-    ]
+    gamesOpinions: []
   },
   getters: {
     getLoading: state => state.apiLoading,

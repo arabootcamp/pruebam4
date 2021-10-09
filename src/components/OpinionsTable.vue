@@ -94,7 +94,7 @@
       },
       editOpinion(index) {
         let opinionNum=index+1;
-        this.$router.push("/administration/edit/"+opinionNum);
+        this.$router.push("/edit/"+opinionNum);
       },
       resetModal() {
         this.opinionNum = null;

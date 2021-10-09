@@ -1,10 +1,9 @@
 <template>
   <div>
     <Navbar />
-    <b-container class="my-5">
 
-      <section>
-
+    <section>
+      <b-container class="my-5">
         <div v-if="opinion==null">
           <h1>No existe comentario a editar para el parámetro ingresado ingresado</h1>
         </div>
@@ -32,8 +31,12 @@
             </div>
           </form>
         </div>
-      </section>
-    </b-container>
+        <b-modal id="modal-save"  @cancel="algo()" ok-only hide-header-close>
+          Se ha guardado el cambio.
+        </b-modal>
+      </b-container>
+    </section>
+
   </div>
 </template>
 
@@ -41,8 +44,8 @@
   import Navbar from "@/components/Navbar.vue";
   export default {
     name: 'Edit',
-    components:{
-    Navbar,
+    components: {
+      Navbar,
     },
     props: {
       numOpinion: {
@@ -78,9 +81,14 @@
           personName: event.target[0].value,
           personOpinion: event.target[1].value,
         })
+        //abrir alert
+        this.$bvModal.show('modal-save');
       },
       backTo() {
         this.$router.go(-1);
+      },
+      algo(){
+        console.log('algo')
       }
     }
   }

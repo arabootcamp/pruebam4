@@ -48,7 +48,7 @@
 
           <!--Modal-->
           <b-modal id="modal-prevent-closing" ref="modal" :title="'Escribe tu opinión para el juego: '+modal.title"
-            @hidden="resetModal" @ok="handleOk" ok-title="Guardar" cancelTitle="Cerrar">
+            @hidden="resetModal" @ok="handleOk" ok-title="Guardar" cancelTitle="Cerrar" hide-header-close>
             <form ref="form" @submit.stop.prevent="handleSubmit()">
               <b-form-group label="Name" label-for="name-input" invalid-feedback="El nombre es requerido"
                 :state="modal.nameState">

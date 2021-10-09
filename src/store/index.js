@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex)
 
@@ -19,6 +20,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setApiData: (state, data) => {
+      state.apiData.length=0;
       data.results.forEach(el => {
         let reverseReleased = el.released.split('-').reverse().join('-');
         let reverseUpdate = el.updated.split('T')[0].split('-').reverse().join('-');
@@ -83,5 +85,6 @@ export default new Vuex.Store({
         commit('editOpinion',payload);
       }
   },
-  modules: {}
+  modules: {},
+  plugins: [createPersistedState()]
 })

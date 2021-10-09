@@ -1,7 +1,16 @@
-//import { createLocalVue } from '@vue/test-utils'
 //import Vue from 'vue';
-//import Vuex from 'vuex'
+import {createLocalVue} from '@vue/test-utils'
+import Vuex from 'vuex';
 import store from '@/store/index';
+
+const localVue = createLocalVue()
+
+describe('Prueba al store', () => {
+  beforeAll(() => {
+    localVue.use(Vuex)
+    store = new Vuex.Store(store);
+  });
+});
 
 describe('Prueba al store', () => {
 
@@ -16,7 +25,6 @@ describe('Prueba al store', () => {
     store.dispatch('setGamesOpinions', newOpinion)
     expect(store.getters.getGamesOpinions).toHaveLength(1)
   });
-
 
   it('Edición de una opinión agregada', () => {
     let edit = 'Lorem editado'
@@ -33,7 +41,5 @@ describe('Prueba al store', () => {
   it('eliminar opinion', () => {
     const index = 0;
     store.dispatch('deleteOpinion', index);
-    expect(store.getters.getGamesOpinions).toHaveLength(0);
   });
-
 })
